@@ -6,6 +6,7 @@ load_dotenv(path.join(basedir, '.env'))
 
 class Config:
 	SECRET_KEY = environ.get('SECRET_KEY')
+	MIRROR_API_URL_PREFIX = environ.get('MIRROR_API_URL_PREFIX') or ''
 
 	DEBUG = int(environ.get('DEBUG')) if environ.get('DEBUG') else 1
 	TESTING = int(environ.get('TESTING')) if environ.get('TESTING') else 1
