@@ -1,23 +1,41 @@
-# Server Mirror api for Sap Apps
+# Server Mirror API for Sap Apps
 
-Url example:
+This API provides information about the active server mirrors for a given app. It is **required for mobile and desktop apps** to maintain reliable connectivity.
+When one server becomes unreachable, the app automatically fetches the list of working server URLs (mirrors), so it can reconfigure itself without requiring:
 
-| path             | type |
-| ---------------- | ---- |
-| /server-mirrors/ | GET  |
+* Rebuilding the app,
+* Changing hardcoded URLs,
+* Releasing app updates,
+* Or forcing users to manually update their app.
 
-**parameters**
-| name | type | description       |
-| ---- | ---- | ----------------- |
-| app  | str  | the MirrorAppName |
+This system improves reliability and user experience, especially in cases of connectivity loss or regional network issues.
 
+## API Endpoint
 
-**example**
-```url
-http://<ip or domain>/<prefix if exists>/server-mirrors/?app=AppName
+| Path               | Method |
+| ------------------ | ------ |
+| `/server-mirrors/` | GET    |
+
+---
+
+## Query Parameters
+
+| Name | Type   | Description       |
+| ---- | ------ | ----------------- |
+| app  | string | The MirrorAppName |
+
+---
+
+## Example Request
+
+```http
+GET http://<ip_or_domain>/<prefix_if_exists>/server-mirrors/?app=AppName
 ```
 
-This will return a json with data:
+---
+
+## Example Response
+
 ```json
 {
   "data": [
