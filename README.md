@@ -1,4 +1,4 @@
-# Server Mirror API for Sap Apps
+# Server Mirror API for Mobile & Desktop Apps
 
 This API provides information about the active server mirrors for a given app. It is **required for mobile and desktop apps** to maintain reliable connectivity.
 When one server becomes unreachable, the app automatically fetches the list of working server URLs (mirrors), so it can reconfigure itself without requiring:
